@@ -145,6 +145,26 @@ joints = (lower + upper) / 2
 joint_and_tcp_poses = solver.get_all_fk(joints)
 ```
 
+## Interactive Viser example
+
+With the Python bindings and URDF tool built as above, run the example in the same Python environment.
+
+```sh
+python3 -m pip install 'viser>=1.1,<2'
+python3 examples/viser_kinematics.py --python-dir build/Release
+```
+
+Open `http://127.0.0.1:8080`. The blue arm shows FK from the six joint controls. Drag the target to preview an IK solution, then release it to compute the full set. You can also enter **Target XYZ (m)**, select a solution by index, or copy the displayed solution to the FK sliders with **Use IK as seed**. The panel shows the TCP error.
+
+The bundled OPW model is loaded by default. Pass `--urdf robot.urdf` with optional `--base` and `--tip` link names for a different arm, or pass `--json opw.json` to reuse extracted parameters. If the extractor is elsewhere, pass its path with `--extractor`.
+
+For URDF visuals, install `'viser[urdf]>=1.1,<2'` and pass `--meshes` with a URDF that has accessible visual assets.
+
+```sh
+python3 -m pip install 'viser[urdf]>=1.1,<2'
+python3 examples/viser_kinematics.py --python-dir build/Release --meshes --urdf robot.urdf --base base_link --tip tool0
+```
+
 ## Reference
 
 The OPW forward and inverse kinematics implemented here are based on the following paper.

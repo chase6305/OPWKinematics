@@ -145,6 +145,26 @@ joints = (lower + upper) / 2
 joint_and_tcp_poses = solver.get_all_fk(joints)
 ```
 
+## Viser 交互示例
+
+按上文构建 Python 绑定和 URDF 工具后，在同一 Python 环境运行示例。
+
+```sh
+python3 -m pip install 'viser>=1.1,<2'
+python3 examples/viser_kinematics.py --python-dir build/Release
+```
+
+打开 `http://127.0.0.1:8080`。蓝色机械臂显示六个关节控件对应的 FK。拖拽目标时预览 IK，松手后列出完整解集。也可在 **Target XYZ (m)** 中输入位置、按序号切换逆解，或使用 **Use IK as seed** 把当前解写入 FK 滑块。侧栏显示 TCP 误差。
+
+默认加载仓库内的 OPW 模型。可通过 `--urdf robot.urdf` 加载其他模型，并用 `--base` 和 `--tip` 指定关节链。也可传入 `--json opw.json` 复用已提取的参数。如果提取工具在其他目录，用 `--extractor` 指定路径。
+
+如果 URDF 的视觉资源可用，安装 `'viser[urdf]>=1.1,<2'` 并加上 `--meshes` 即可查看网格。
+
+```sh
+python3 -m pip install 'viser[urdf]>=1.1,<2'
+python3 examples/viser_kinematics.py --python-dir build/Release --meshes --urdf robot.urdf --base base_link --tip tool0
+```
+
 ## 参考论文
 
 本仓库的 OPW 正运动学和逆运动学实现基于以下论文。
