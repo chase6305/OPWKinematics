@@ -42,6 +42,8 @@
 [Bb]uild/
 [Bb]uild-*/
 cmake-build-*/
+CMakeUserPresets.json
+__pycache__/
 
 # CMake generated files
 CMakeFiles/

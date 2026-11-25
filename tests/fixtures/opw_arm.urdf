@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot name="test_opw_arm">
+  <link name="base_link"/>
+  <link name="mount"/>
+  <link name="link1"/>
+  <link name="link2"/>
+  <link name="adapter"/>
+  <link name="link3"/>
+  <link name="link4"/>
+  <link name="link5"/>
+  <link name="link6"/>
+  <link name="tool0"/>
+  <link name="gripper_finger"/>
+  <joint name="base_mount" type="fixed">
+    <parent link="base_link"/><child link="mount"/>
+    <origin xyz="0.1 -0.2 0.3" rpy="0.2 0.3 -0.4"/>
+  </joint>
+  <joint name="j1" type="revolute">
+    <parent link="mount"/><child link="link1"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0.2"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3" upper="3" effort="10" velocity="1"/>
+  </joint>
+  <joint name="j2" type="revolute">
+    <parent link="link1"/><child link="link2"/>
+    <origin xyz="0.1 -0.07 0.35" rpy="0 0.25 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-1.8" upper="2.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="elbow_adapter" type="fixed">
+    <parent link="link2"/><child link="adapter"/>
+    <origin xyz="0 0.03 0.44" rpy="0 -0.38 0"/>
+  </joint>
+  <joint name="j3" type="revolute">
+    <parent link="adapter"/><child link="link3"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.7" upper="2.4" effort="10" velocity="1"/>
+  </joint>
+  <joint name="j4" type="revolute">
+    <parent link="link3"/><child link="link4"/>
+    <origin xyz="-0.09 0.02 0.17" rpy="0 0.22 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3" upper="3" effort="10" velocity="1"/>
+  </joint>
+  <joint name="j5" type="revolute">
+    <parent link="link4"/><child link="link5"/>
+    <origin xyz="0 0 0.13" rpy="0 0 -0.35"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="-1.9" upper="1.9" effort="10" velocity="1"/>
+  </joint>
+  <joint name="j6" type="continuous">
+    <parent link="link5"/><child link="link6"/>
+    <origin xyz="-0.0248733876366338 0 0.0556984253590508" rpy="0 -0.42 0"/>
+    <axis xyz="0 0 -1"/>
+    <limit effort="10" velocity="1"/>
+  </joint>
+  <joint name="tool_mount" type="fixed">
+    <parent link="link6"/><child link="tool0"/>
+    <origin xyz="0.02 -0.01 0.08" rpy="0.2 0.1 -0.3"/>
+  </joint>
+  <joint name="gripper_slide" type="prismatic">
+    <parent link="tool0"/><child link="gripper_finger"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.04" effort="10" velocity="1"/>
+  </joint>
+</robot>
