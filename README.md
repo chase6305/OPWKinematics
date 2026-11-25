@@ -147,4 +147,6 @@ joint_and_tcp_poses = solver.get_all_fk(joints)
 
 ## Reference
 
+The OPW forward and inverse kinematics implemented here are based on the following paper.
+
 Mathias Brandstötter, Arthur Angerer, and Michael Hofbaur. “An Analytical Solution of the Inverse Kinematics Problem of Industrial Serial Manipulators with an Ortho-parallel Basis and a Spherical Wrist.” *Proceedings of the Austrian Robotics Workshop*, Linz, Austria, 22–23 May 2014. [Revised paper shared by the authors](https://www.researchgate.net/publication/264212870_An_Analytical_Solution_of_the_Inverse_Kinematics_Problem_of_Industrial_Serial_Manipulators_with_an_Ortho-parallel_Basis_and_a_Spherical_Wrist).

@@ -147,4 +147,6 @@ joint_and_tcp_poses = solver.get_all_fk(joints)
 
 ## 参考论文
 
+本仓库的 OPW 正运动学和逆运动学实现基于以下论文。
+
 Mathias Brandstötter、Arthur Angerer、Michael Hofbaur。“An Analytical Solution of the Inverse Kinematics Problem of Industrial Serial Manipulators with an Ortho-parallel Basis and a Spherical Wrist.” *Proceedings of the Austrian Robotics Workshop*，奥地利林茨，2014 年 5 月 22–23 日。[作者发布的修订版](https://www.researchgate.net/publication/264212870_An_Analytical_Solution_of_the_Inverse_Kinematics_Problem_of_Industrial_Serial_Manipulators_with_an_Ortho-parallel_Basis_and_a_Spherical_Wrist)。
